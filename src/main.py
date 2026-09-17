@@ -10,9 +10,13 @@ from src.utils.config import logging, FRAME_RATE, DIFFICULTY_SPEEDS, \
     DIFFICULTY_GRAVITIES, DIFFICULTY_VELOCITIES
 from src.game.game import Game
 
+def get_base_dir():
+    if sys.platform == "emscripten":
+        return os.getcwd()
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def validate_resources():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    base_dir = get_base_dir()
 
     required_files = [
         "assets/textures/backgrounds/day/day_background_0.png",
