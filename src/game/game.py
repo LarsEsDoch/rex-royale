@@ -3,6 +3,8 @@ import random
 import os
 import json
 
+import asyncio
+
 from src.game import handleEvents
 from src.game import update
 from src.game import render
@@ -234,11 +236,12 @@ class Game:
             logging.info("No accounts found")
 
 
-    def run(self):
+    async def run(self):
         while self.running:
             handleEvents.handleEvents(self)
             if not self.freeze:
                 update.update(self)
             render.render(self)
             clock.tick(self.fps)
+            await asyncio.sleep(0)
         pygame.quit()
