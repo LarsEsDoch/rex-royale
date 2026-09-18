@@ -23,9 +23,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pygbag
 
-      - name: Build Web Assembly
+      - name: Build Web Assembly with Pygbag
         run: |
-          python -m pygbag --build src
+          python -m pygbag --build .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
