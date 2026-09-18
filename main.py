@@ -1,4 +1,4 @@
-# This file is used to run the game safely
+# This file is used to run the game safely (and needed for github pages)
 import asyncio
 from src.main import main
 
